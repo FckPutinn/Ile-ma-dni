@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="todayDate()">
+    <div>
+        <span id="today"></span>
+    </div>
+    <div>
+        <input type="date" id="date">
+    </div>
+    <div>
+        <button onclick="policz()">Policz</button>
+    </div>
+    <div>
+        <span id="wynikH"></span>
+    </div>
+    <div>
+        <span id="wynikG"></span>
+    </div>
+    <script>
+        var today = new Date();
+
+        function todayDate() {
+            document.getElementById("today").innerHTML = today;
+        }
+
+        function policz(){
+            var date = new Date(document.getElementById("date").value);
+            let wynik = today - date;
+            document.getElementById("wynikH").innerHTML = "Upłynęło " + Math.floor(Math.abs(wynik / (1000 * 60 * 60 * 24))) + " dni";
+            document.getElementById("wynikG").innerHTML = "Upłynęło " + Math.floor(Math.abs(wynik / (1000 * 60 * 60)+2 )) + " godzin";
+        }
+    </script>
+</body>
+</html>
